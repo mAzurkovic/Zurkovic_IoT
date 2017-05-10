@@ -39,15 +39,16 @@ while True:
   distance = pulse_duration * 17150        #Multiply pulse duration by 17150 to get distance
   distance = round(distance, 2)            #Round to two decimal points
 
-  date_time = str(strftime("%Y-%m-%d %H:%M:%S", gmtime()))
+  date_time = strftime("%Y-%m-%d %H:%M:%S", gmtime())
 
   if (distance < 5):
     print("Alarm triggered at " + str(date_time) + "With " + str(distance))
 
     result = db.triggers.insert_one(
     {
-	"date": datetime.now().strftime('%d-%m-%Y %H:%M:%S.%f'),
-        "triggered": 1
+	"date": date_time,
+        "triggered": 1,
+	"distance": distance
     })
 
 '''
