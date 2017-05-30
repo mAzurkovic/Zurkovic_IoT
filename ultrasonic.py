@@ -4,7 +4,6 @@ from pymongo import MongoClient
 from time import gmtime, strftime
 from datetime import datetime
 
-
 GPIO.setmode(GPIO.BCM)                     # Set GPIO pin numbering 
 
 TRIG = 23                                  
